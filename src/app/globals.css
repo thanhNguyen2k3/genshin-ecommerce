@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
+}
+
+a:hover {
+    color: #6eb89f;
+}
+
+input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+/*
+    custom css start
+*/
+
+@media (max-width: 320px) {
+    /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+    * {
+        font-size: 14px;
+    }
+}
+@media (max-width: 480px) {
+    * {
+        font-size: 14px;
+    }
+    /* smartphones, Android phones, landscape iPhone */
+}
+@media (max-width: 600px) {
+    * {
+        /* font-size: 14px; */
+    }
+    /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+}
+@media (min-width: 801px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+}
+@media (min-width: 320px) {
+    /* smartphones, iPhone, portrait 480x320 phones */
+}
+@media (min-width: 481px) {
+    /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+}
+@media (min-width: 641px) {
+    /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+}
+@media (min-width: 961px) {
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+}
+@media (min-width: 1025px) {
+    /* big landscape tablets, laptops, and desktops */
+}
+@media (min-width: 1281px) {
+    /* hi-res laptops and desktops */
+}
+
+/*
+    custom css end
+*/
+
+/* .ant-tabs-nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.ant-tabs-tab {
+    color: white !important;
+    width: 100% !important;
+    justify-content: center;
+    margin-left: 0 !important;
+    border-bottom: 0 !important;
+}
+
+.ant-tabs-nav::before {
+    border-bottom: 0px !important;
+}
+
+.ant-tabs-ink-bar {
+    height: 5px;
+    background: #6eb89f !important;
+    padding: 1.5px;
+    border-bottom: 1.5px !important;
+}
+
+.ant-tabs-tab-btn[aria-selected='true'] {
+    color: #6eb89f !important;
+} */
+
+/* Collapse */
+
+/* .ant-collapse-header {
+    color: white !important;
+}
+
+.ant-collapse-item {
+    border-bottom: 0px !important;
+} */
+
+// Navigation
+
+/* .ant-menu > .ant-menu-item:hover,
+.ant-menu > .ant-menu-submenu:hover,
+.ant-menu > .ant-menu-item-active,
+.ant-menu > .ant-menu-submenu-active,
+.ant-menu > .ant-menu-item-open,
+.ant-menu > .ant-menu-submenu-open,
+.ant-menu > .ant-menu-item-selected,
+.ant-menu > .ant-menu-submenu-selected {
+    color: red !important;
+    border-bottom: 2px solid red !important;
+}
+
+.antd-menu-custom {
+    background-color: #fff !important;
+}
+
+.ant-menu-item-selected {
+    background-color: #000 !important;
+    padding: 0;
+}
+
+.ant-menu-item .ant-menu-submenu-selected a::before {
+    background-color: #000 !important;
+}
+
+.ant-menu-item-group-title {
+    background-color: #000;
+}
+
+.ant-menu-sub .ant-menu-item {
+    padding-left: 24px !important;
+}
+.ant-menu-inline {
+    background-color: #000;
+}
+
+.ant-menu-title-content {
+    color: white;
+} */
+
+// Ant Menu item active
+/* :where(.css-dev-only-do-not-override-amq5gd).ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after {
+    border-bottom-width: 0px !important;
+    border-bottom-color: #000 !important;
+}
+
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-light.ant-menu-horizontal > .ant-menu-item::after,
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-item::after,
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-light.ant-menu-horizontal > .ant-menu-submenu::after,
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-light > .ant-menu.ant-menu-horizontal > .ant-menu-submenu::after {
+    display: none;
+}
+
+.ant-menu-sub > .ant-menu-item > .ant-menu-title-content {
+    color: #000 !important;
+}
+
+.ant-menu-title-content {
+    color: #000 !important;
+} */
+
+/* .ant-menu-item-selected {
+    background-color: #fff !important;
+} */
+
+/* .ant-menu-item-selected .ant-menu-title-content {
+    color: #000;
+}
+
+.anticon .anticon-user .ant-menu-item-icon {
+    color: #000 !important;
+}
+
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-light:not(.ant-menu-horizontal)
+    .ant-menu-item:not(.ant-menu-item-selected):hover,
+:where(.css-dev-only-do-not-override-amq5gd).ant-menu-light
+    > .ant-menu:not(.ant-menu-horizontal)
+    .ant-menu-item:not(.ant-menu-item-selected):hover {
+    background-color: #000;
+} */
+
+/* Css Menu mobile */
+
+/* .ant-menu-mobile-custom li {
+    background-color: #000 !important;
+}
+
+.ant-menu-mobile-custom .ant-menu-sub {
+    background-color: #000 !important;
+} */
+
+/* Slides
+
+.swiper-pagination {
+    bottom: 20px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 10px !important;
+    height: 10px !important;
+    text-align: center;
+    line-height: 6px;
+    opacity: 1;
+    background: #fff !important;
+    border: 1px solid #000;
+}
+
+.swiper-pagination-bullet-active {
+    background: #333 !important;
+}
+
+/* Dropdown */
+
+.ant-dropdown {
+    min-width: 220px !important;
+    max-width: 220px;
+}
+
+.ant-dropdown-menu {
+    border-radius: 0 !important;
+}
+
+.ant-dropdown-menu-sub {
+    min-width: 220px;
+}
+
+/* Swiper */
+
+/* .swiper-small-custom .swiper-wrapper {
+    display: grid !important;
+}
+
+.swiper-small-custom .swiper-wrapper .swiper-slide {
+    width: 100% !important;
+} */
+
+/* Radio antd */
+
+/* .antd-radio-custom :where(.css-dev-only-do-not-override-amq5gd).ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+    background-color: #6eb89f;
+} */
+
+/* Antd Dropdown */
+
+/* .ant-dropdown {
+    min-width: 260px !important;
+} */
