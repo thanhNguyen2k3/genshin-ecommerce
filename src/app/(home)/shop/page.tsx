@@ -12,18 +12,17 @@ import instance from '@/lib/axios';
 import { ExtandCharacter, ExtandProduct } from '@/types/extend';
 import { Category, Product } from '@prisma/client';
 
-import { ReactNode, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 type ExtandCategory = Category & {
     products: Product[];
 };
 
 type Props = {
-    children: ReactNode;
     searchParams: { [key: string]: string | string[] | undefined };
 };
 
-const Layout = ({ searchParams }: Props) => {
+const Page = ({ searchParams }: Props) => {
     const [products, setProducts] = useState<ExtandProduct[]>([]);
     const [bestSelled, setBestSelled] = useState<ExtandProduct[]>([]);
     const [categories, setCategories] = useState<ExtandCategory[]>([]);
@@ -104,4 +103,4 @@ const Layout = ({ searchParams }: Props) => {
     );
 };
 
-export default Layout;
+export default Page;
