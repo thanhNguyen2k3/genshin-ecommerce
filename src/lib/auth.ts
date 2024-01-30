@@ -4,7 +4,6 @@ import GoogleProvider from 'next-auth/providers/google';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { db } from '@/lib/db';
 import { nanoid } from 'nanoid';
-import instance from './axios';
 import bcrypt from 'bcrypt';
 
 export const authOptions: NextAuthOptions = {

@@ -1,5 +1,4 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
-import { Product } from '@prisma/client';
 import { message } from 'antd';
 import { ExtandProduct } from '@/types/extend';
 
