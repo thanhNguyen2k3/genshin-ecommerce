@@ -17,7 +17,7 @@ const Page = () => {
         form.setFieldsValue({
             email: data?.user.email,
         });
-    }, [form]);
+    }, [form, data?.user?.email]);
 
     const onSubmit = (values: any) => {
         instance

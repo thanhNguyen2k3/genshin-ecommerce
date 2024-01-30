@@ -5,8 +5,6 @@ import {
     MdAddBox,
     MdCategory,
     MdShop,
-    MdAutoDelete,
-    MdRestoreFromTrash,
     MdLogout,
     MdTimeline,
     MdCreateNewFolder,
@@ -198,16 +196,6 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
                                         label: <Link href={'/admin/time-lines'}>Time Line</Link>,
                                     },
                                 ],
-                            },
-                            {
-                                key: 'trash/product',
-                                icon: <MdAutoDelete />,
-                                label: <Link href={'/admin/trash/product'}>Thùng rác</Link>,
-                            },
-                            {
-                                key: 'trash/order',
-                                icon: <MdRestoreFromTrash />,
-                                label: <Link href={'/admin/trash/order'}>Đơn hàng đã xóa</Link>,
                             },
                             {
                                 key: 'admin/logout',

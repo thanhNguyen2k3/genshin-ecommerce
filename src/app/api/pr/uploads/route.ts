@@ -1,10 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import fs, { writeFile } from 'fs/promises';
+import { NextResponse } from 'next/server';
+import { writeFile } from 'fs/promises';
 import { AxiosError } from 'axios';
-import formidable from 'formidable';
-import path from 'path';
-import { NextApiRequest } from 'next';
-import { db } from '@/lib/db';
 
 export const config = {
     api: {

@@ -56,7 +56,7 @@ const Layout = ({ children }: Props) => {
 
     useEffect(() => {
         if (status === 'unauthenticated') return router.push('/');
-    }, [status]);
+    }, [router, status]);
 
     return (
         <>

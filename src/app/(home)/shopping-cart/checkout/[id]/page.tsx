@@ -41,7 +41,6 @@ const StyleInline = styled.div`
 const Page = ({ params: { id } }: Props) => {
     const params = useSearchParams();
     const router = useRouter();
-    const { data } = useSession();
     const dispatch = useAppDispatch();
 
     const code = params.get('vnp_ResponseCode');
@@ -88,7 +87,7 @@ const Page = ({ params: { id } }: Props) => {
                 }
             }
         }
-    }, []);
+    }, [code, dispatch, id, params, router]);
 
     return (
         <StyleBackground>

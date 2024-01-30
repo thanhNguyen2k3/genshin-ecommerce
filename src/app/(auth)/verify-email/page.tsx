@@ -3,7 +3,7 @@
 import instance from '@/lib/axios';
 import { message } from 'antd';
 import { useSearchParams, notFound } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Page = () => {
     const searchParams = useSearchParams();
@@ -15,7 +15,7 @@ const Page = () => {
         if (!userId) {
             return notFound();
         }
-    }, []);
+    }, [userId]);
 
     const makeRequest = async () => {
         try {
