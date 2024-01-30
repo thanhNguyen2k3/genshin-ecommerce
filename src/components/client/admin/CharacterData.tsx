@@ -181,7 +181,9 @@ const CharacterData = ({ characters, regions, visions, weapons }: Props) => {
                     >
                         <Option value={''}>-- Chọn vùng --</Option>
                         {regions.map((region) => (
-                            <Option value={region.id}>{region.name}</Option>
+                            <Option key={region.id} value={region.id}>
+                                {region.name}
+                            </Option>
                         ))}
                     </StyleSelect>
                 </div>

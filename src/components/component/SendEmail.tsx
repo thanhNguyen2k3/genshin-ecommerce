@@ -128,8 +128,9 @@ const ShopReceiptEmail = ({ orderId, order }: Props) => {
                             </tr>
                         </thead>
                         <tbody style={{ padding: '15px' }}>
-                            {order?.orderItems?.map((order) => (
+                            {order?.orderItems?.map((order, index) => (
                                 <tr
+                                    key={index}
                                     style={{
                                         fontSize: '14px',
                                         margin: 0,

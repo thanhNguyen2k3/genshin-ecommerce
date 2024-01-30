@@ -1,11 +1,11 @@
 'use client';
 
-import { FormEvent, useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, FreeMode, Thumbs } from 'swiper/modules';
 import { ExtandProduct } from '@/types/extend';
 import { formartUSD } from '@/utils/formartUSD';
-import { Divider, Tabs, Tooltip, message } from 'antd';
+import { Divider, Tabs, Tooltip } from 'antd';
 import Link from 'next/link';
 import { HeartOutlined } from '@ant-design/icons';
 import {
@@ -16,11 +16,8 @@ import {
     BiLogoTwitter,
     BiLogoWhatsapp,
 } from 'react-icons/bi';
-import { useAppDispatch } from '@/store/hook';
-import { add } from '@/slices/cart';
 import styled from 'styled-components';
 import DividerFading from '@/components/ui/DividerFading';
-import { usePathname, useRouter } from 'next/navigation';
 
 type Props = {
     product: ExtandProduct;
@@ -150,8 +147,8 @@ const ViewProductAdmin = ({ product }: Props) => {
     // Viriant
 
     const [priceSwap, setPriceSwap] = useState(product.variants[0]?.price);
-    const [size, setSize] = useState<string>('');
-    const [color, setColor] = useState<string>('');
+    const [_size, setSize] = useState<string>('');
+    const [_color, setColor] = useState<string>('');
 
     const checkOptionName = product?.variants?.find((variant) => variant?.optionName);
     const sale = product?.price! - (product?.price! * product?.saleOff!) / 100;

@@ -20,7 +20,7 @@ import { useAppDispatch } from '@/store/hook';
 import { add } from '@/slices/cart';
 import styled from 'styled-components';
 import DividerFading from '@/components/ui/DividerFading';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 type Props = {
     product: ExtandProduct;

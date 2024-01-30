@@ -49,10 +49,9 @@ const links = [
     },
 ];
 
-const layout = ({ children }: Props) => {
-    const { status } = useSession();
-
+const Layout = ({ children }: Props) => {
     let path = usePathname();
+    const { status } = useSession();
     const router = useRouter();
 
     useEffect(() => {
@@ -106,4 +105,4 @@ const layout = ({ children }: Props) => {
     );
 };
 
-export default layout;
+export default Layout;

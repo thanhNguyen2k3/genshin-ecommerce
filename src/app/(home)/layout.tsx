@@ -5,8 +5,7 @@ import { Layout } from 'antd';
 import Header from '@/components/component/header/Header';
 import FooterFn from '@/components/component/footer/FooterFn';
 import { useWindowOffsetHeight } from '@/hooks/useWindowDimensions';
-import { checkAuth } from '@/utils/checkAuth';
-import LoadingSpinner from '@/components/ui/LoadingSpinner';
+import { CheckAuth } from '@/utils/checkAuth';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 type Props = {
@@ -14,7 +13,7 @@ type Props = {
 };
 
 const MainLayout = ({ children }: Props) => {
-    const {} = checkAuth();
+    const {} = CheckAuth();
 
     const [showChild, setShowChild] = useState(false);
     useEffect(() => {

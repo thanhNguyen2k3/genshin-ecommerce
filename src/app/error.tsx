@@ -1,8 +1,6 @@
 'use client';
 
-import Link from 'next/link';
-
-const error = ({ error, reset }: { error: Error; reset: () => void }) => {
+const error = ({ reset }: { error: Error; reset: () => void }) => {
     return (
         <div className="relative h-screen w-screen flex  justify-center items-center">
             <div
