@@ -2,12 +2,6 @@ import { NextResponse } from 'next/server';
 import { writeFile } from 'fs/promises';
 import { AxiosError } from 'axios';
 
-export const config = {
-    api: {
-        bodyParser: false,
-    },
-};
-
 export const POST = async (req: NextResponse) => {
     try {
         const data = await req.formData();
