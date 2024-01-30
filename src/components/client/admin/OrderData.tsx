@@ -18,7 +18,7 @@ import { Button, Input, InputRef, Modal, Space, Table, Form, Select, message, Da
 import type { DatePickerProps, RangePickerProps } from 'antd/es/date-picker';
 import { ColumnType, FilterConfirmProps } from 'antd/es/table/interface';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Key, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Highlighter from 'react-highlight-words';
 import styled from 'styled-components';
 
@@ -60,9 +60,8 @@ const OrderData = ({ orders }: Props) => {
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
 
-    const [editingKey, setEditingKey] = useState('');
+    const [_editingKey, _setEditingKey] = useState('');
     // Selected id
-    const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
     // state end
 
     // Ref start
@@ -70,15 +69,6 @@ const OrderData = ({ orders }: Props) => {
     //Ref end
 
     // Handle
-
-    const onSelectChange = (newSelectedRowKeys: Key[]) => {
-        setSelectedRowKeys(newSelectedRowKeys);
-    };
-
-    const rowSelection = {
-        selectedRowKeys,
-        onChange: onSelectChange,
-    };
 
     const showCancelledConfirm = (record: Order) => {
         confirm({
@@ -121,76 +111,6 @@ const OrderData = ({ orders }: Props) => {
 
     // Edit row start
 
-    const save = async (id: string, record: ExtandOrder) => {
-        try {
-            const row = (await form.validateFields()) as Order;
-
-            const newData = [...orders];
-
-            if (selectedRowKeys.length > 0) {
-                const orderStatus = orders.find((order) => order.status !== record.status);
-
-                if (orderStatus) {
-                    message.warning('Vui lọng lựa chọn những đơn hàng có trạng thái giống nhau để cập nhật');
-                } else {
-                    instance
-                        .patch('/api/pr/order/ids', {
-                            status: row.status,
-                            orderIds: selectedRowKeys,
-                        })
-                        .then((res) => {
-                            message.success('Cập nhật thành công');
-                            router.refresh();
-                            setSelectedRowKeys([]);
-                        });
-
-                    const index = newData.findIndex((item) => id === item.id);
-
-                    if (index > -1) {
-                        const item = newData[index];
-
-                        newData.splice(index, 1, {
-                            ...item,
-                            ...row,
-                        });
-
-                        setEditingKey('');
-                    } else {
-                        setEditingKey('');
-                    }
-                }
-            } else {
-                if (row.status >= StatusEnum.ORDER_CONFIRM) {
-                    await instance
-                        .patch(`/api/pr/order/${id}`, {
-                            status: row.status,
-                        })
-                        .then(() => {
-                            message.success('Cập nhật thành công');
-                            router.refresh();
-                        });
-
-                    const index = newData.findIndex((item) => id === item.id);
-
-                    if (index > -1) {
-                        const item = newData[index];
-
-                        newData.splice(index, 1, {
-                            ...item,
-                            ...row,
-                        });
-
-                        setEditingKey('');
-                    } else {
-                        setEditingKey('');
-                    }
-                }
-            }
-        } catch (errInfo) {
-            console.log('Validate Failed:', errInfo);
-        }
-    };
-
     const showConfirm = (record: ExtandOrder) => {
         confirm({
             title: <h1>Bạn có muốn chuyển trạng thái đơn hàng</h1>,
@@ -210,33 +130,14 @@ const OrderData = ({ orders }: Props) => {
                 </p>
             ),
             onOk: async () => {
-                if (selectedRowKeys.length > 0) {
-                    const orderStatus = orders.find((order) => order.status !== record.status);
-
-                    if (orderStatus) {
-                        message.warning('Vui lọng lựa chọn những đơn hàng có trạng thái giống nhau để cập nhật');
-                    } else {
-                        await instance
-                            .patch('/api/pr/order/ids', {
-                                status: record.status + 1,
-                                orderIds: selectedRowKeys,
-                            })
-                            .then((res) => {
-                                message.success('Cập nhật thành công');
-                                router.refresh();
-                                setSelectedRowKeys([]);
-                            });
-                    }
-                } else {
-                    await instance
-                        .patch(`/api/pr/order/${record.id}`, {
-                            status: record.status + 1,
-                        })
-                        .then(() => {
-                            message.success('Cập nhật thành công');
-                            router.refresh();
-                        });
-                }
+                await instance
+                    .patch(`/api/pr/order/${record.id}`, {
+                        status: record.status + 1,
+                    })
+                    .then(() => {
+                        message.success('Cập nhật thành công');
+                        router.refresh();
+                    });
             },
             onCancel() {
                 console.log('Cancel');
@@ -478,7 +379,6 @@ const OrderData = ({ orders }: Props) => {
 
             <Form form={form} component={false}>
                 <Table
-                    rowSelection={rowSelection}
                     expandable={{
                         expandIcon: ({ onExpand, record }) => (
                             <DoubleRightOutlined

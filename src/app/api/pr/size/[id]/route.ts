@@ -38,27 +38,3 @@ export const PATCH = async (req: NextRequest, { params: { id } }: Params) => {
         return new NextResponse(JSON.stringify({ message: error.message }), { status: 400 });
     }
 };
-
-export const DELETE = async ({ params: { id } }: Params) => {
-    try {
-        const existSize = await db.size.findFirst({
-            where: {
-                id,
-            },
-        });
-
-        if (!existSize) {
-            return NextResponse.json({ message: 'Không tìm thấy màu' }, { status: 400 });
-        }
-
-        await db.size.delete({
-            where: {
-                id,
-            },
-        });
-
-        return NextResponse.json({ message: 'Xóa thành công' }, { status: 200 });
-    } catch (error: any) {
-        return new NextResponse(JSON.stringify({ message: error.message }), { status: 400 });
-    }
-};

@@ -1,4 +1,3 @@
-import { getAuthSession } from '@/lib/auth';
 import { db } from '@/lib/db';
 import { StatusEnum } from '@/types/enum';
 import { NextRequest, NextResponse } from 'next/server';
@@ -10,8 +9,6 @@ type Params = {
 };
 
 export const PATCH = async (req: NextRequest, { params: { id } }: Params) => {
-    const session = await getAuthSession();
-
     try {
         const body = await req.json();
 
