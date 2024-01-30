@@ -1,7 +1,5 @@
-import CancelledOrder from '@/components/component/CancelledOrder';
 import { db } from '@/lib/db';
 import { noderMail } from '@/utils/nodemailer';
-import { resendEmail } from '@/utils/resendEmail';
 import { NextRequest, NextResponse } from 'next/server';
 
 type Params = {
@@ -40,16 +38,6 @@ export const PATCH = async (req: NextRequest, { params: { id } }: Params) => {
         await noderMail({
             to: order.email,
             html,
-        });
-
-        await db.timeLine.create({
-            data: {
-                orderId: order.id,
-                status: order.status,
-            },
-            include: {
-                order: true,
-            },
         });
 
         return NextResponse.json({ message: 'Hủy đơn hàng thành công' }, { status: 200 });

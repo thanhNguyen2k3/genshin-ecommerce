@@ -1,15 +1,6 @@
 'use client';
 import { BoldOutlined, FolderOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
-import {
-    MdDashboard,
-    MdAddBox,
-    MdCategory,
-    MdShop,
-    MdLogout,
-    MdTimeline,
-    MdCreateNewFolder,
-    MdPerson,
-} from 'react-icons/md';
+import { MdDashboard, MdAddBox, MdCategory, MdShop, MdLogout, MdCreateNewFolder, MdPerson } from 'react-icons/md';
 import { IoColorPaletteSharp, IoOptionsOutline } from 'react-icons/io5';
 import { VscTextSize } from 'react-icons/vsc';
 import { IoMdOptions } from 'react-icons/io';
@@ -189,13 +180,6 @@ const Sidebar = ({ collapsed, setCollapsed }: Props) => {
                                 key: 'orders',
                                 icon: <MdShop />,
                                 label: <Link href={'/admin/orders'}>Đặt hàng</Link>,
-                                children: [
-                                    {
-                                        key: 'order/timeline',
-                                        icon: <MdTimeline />,
-                                        label: <Link href={'/admin/time-lines'}>Time Line</Link>,
-                                    },
-                                ],
                             },
                             {
                                 key: 'admin/logout',
